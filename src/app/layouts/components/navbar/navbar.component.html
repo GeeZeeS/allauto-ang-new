@@ -37,26 +37,11 @@
   <div class="nav-bottom">
     <div class="container">
       <ul>
-        <li>
-					<a 
-						[routerLink]="['/']" routerLinkActive="active" 
-						[routerLinkActiveOptions]="{ exact: true }">Главная</a>
-        </li>
-        <li>
-          <a [routerLink]="['/car-sales']" routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }">Авторынок</a>
-        </li>
-        <li>
-          <a [routerLink]="['/check-vin']" routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }">Проверить VIN</a>
-        </li>
-        <li>
-          <a [routerLink]="['/blog']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Новости</a>
-        </li>
-        <li style="float:right">
-          <a [routerLink]="['/car-sales/create']" routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }">Добавить Объявления</a>
-        </li>
+        <li><a [routerLink]="['/']" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Главная</a></li>
+        <li><a [routerLink]="['/car-sales']" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Авторынок</a></li>
+        <li><a [routerLink]="['/check-vin']" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Проверить VIN</a></li>
+        <li><a [routerLink]="['/blog']" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Новости</a></li>
+        <li style="float:right"><a [routerLink]="['/car-sales/create']" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Добавить Объявления</a></li>
       </ul>
     </div>
   </div>

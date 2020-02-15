@@ -1,6 +1,9 @@
 #nav-main {
   background-color: #f0f0f0;
   font-family: 'Montserrat', sans-serif;
+  .active-link {
+    background-color: #f0f0f0;
+  }
   .nav-upper {
     height: 35px;
     font-size: 11px;
@@ -18,9 +21,6 @@
         text-align: center;
         padding: 10px 10px;
         text-decoration: none;
-      }
-      li a:active {
-        background-color: #e6e6e6;
       }
       li a:hover {
         background-color: #e6e6e6;
@@ -46,8 +46,17 @@
         text-align: center;
         padding: 15px 20px;
         text-decoration: none;
+        .active-link {
+          background-color: #f0f0f0;
+        }
+      }
+      li a:active {
+        background-color: #f0f0f0;
       }
       li a:hover {
+        background-color: #f0f0f0;
+      }
+      a:active {
         background-color: #f0f0f0;
       }
     }
