@@ -1,11 +1,27 @@
 #login_form {
   padding: 30px 40px;
+
   .validation {
     margin-left: 10px;
     color: red;
   }
+  label {
+    font-size: 12px;
+  }
+  small {
+    font-size: 11px;
+  }
+
   .btn {
-    margin-bottom: 20px;
+    margin: 20px 0;
     padding: 10px 30px;
+    width: 170px;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+  }
+  .form-control {
+    outline: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
   }
 }
