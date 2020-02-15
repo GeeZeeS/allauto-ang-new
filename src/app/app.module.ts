@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { SharedModule } from './modules/shared.module';
 import { AuthService } from './services/auth.service';
+import { CarSalesService } from './services/car_sales.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -63,7 +64,7 @@ import { AuthGuard } from './guards/auth.guard';
     AppRoutingModule
   ],
   providers: [
-    AuthService, AuthGuard
+    AuthService, AuthGuard, CarSalesService
   ],
   bootstrap: [
     AppComponent

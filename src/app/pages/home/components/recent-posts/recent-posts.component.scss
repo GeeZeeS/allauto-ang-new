@@ -1,12 +1,21 @@
 .recent-posts {
   .post-image {
     img {
-      max-height: 200px;
+      height: 160px;
+      width: 100%;
+      object-fit: cover;
     }
   }
   .post-title {
-    font-size: 13px;
+    margin-top: 15px;
+    font-size: 14px;
     font-weight: 700;
+    a {
+      color: #333333;
+    }
+    a:hover {
+      color: #7e7e7e;
+    }
   }
   .post-price {
     font-size: 14px;
@@ -16,5 +25,6 @@
     font-size: 11px;
     font-weight: 500;
     color: #7e7e7e;
+    margin-bottom: 20px;
   }
 }
