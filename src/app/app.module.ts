@@ -1,5 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { SharedModule } from './modules/shared.module';
+import { AuthService } from './services/auth.service';
+import { CarSalesService } from './services/car_sales.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,33 +25,49 @@ import { NavbarComponent } from './layouts/components/navbar/navbar.component';
 import { FooterComponent } from './layouts/components/footer/footer.component';
 import { HomeFilterComponent } from './pages/home/components/home-filter/home-filter.component';
 import { HomePageComponent } from './pages/home/home-page/home-page.component';
+import { FormsModule } from '@angular/forms';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
+    // Main Layout
     MainLayoutComponent,
+    NavbarComponent,
+    FooterComponent,
+    // Authentication
     LoginPageComponent,
     RegisterPageComponent,
+    // Home
     HomePageComponent,
     HomeFilterComponent,
-    BlogPageComponent,
-    CarSalesPageComponent,
-    ProfilePageComponent,
-    BlogListPageComponent,
-    CarSalesListPageComponent,
-    CarSalesEditPageComponent,
-    VinCheckPageComponent,
     RecentPostsComponent,
     RecommendedPostsComponent,
     MostPopularBrandsComponent,
-    NavbarComponent,
-    FooterComponent
+    // Blog
+    BlogPageComponent,
+    BlogListPageComponent,
+    // Car Sales
+    CarSalesPageComponent,
+    CarSalesListPageComponent,
+    CarSalesEditPageComponent,
+    // User
+    ProfilePageComponent,
+    // Vin Check
+    VinCheckPageComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedModule,
     AppRoutingModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    AuthService, AuthGuard, CarSalesService
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }
