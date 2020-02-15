@@ -1,0 +1,20 @@
+.recommended-posts {
+  .post-image {
+    img {
+      max-height: 200px;
+    }
+  }
+  .post-title {
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .post-price {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .post-decription {
+    font-size: 11px;
+    font-weight: 500;
+    color: #7e7e7e;
+  }
+}

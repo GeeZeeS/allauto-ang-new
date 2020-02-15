@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { SharedModule } from './modules/shared.module';
+import { AuthService } from './services/auth.service';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './pages/authentication/login-page/login-page.component';
@@ -24,29 +27,41 @@ import { HomePageComponent } from './pages/home/home-page/home-page.component';
 @NgModule({
   declarations: [
     AppComponent,
+    // Main Layout
     MainLayoutComponent,
+    NavbarComponent,
+    FooterComponent,
+    // Authentication
     LoginPageComponent,
     RegisterPageComponent,
+    // Home
     HomePageComponent,
     HomeFilterComponent,
-    BlogPageComponent,
-    CarSalesPageComponent,
-    ProfilePageComponent,
-    BlogListPageComponent,
-    CarSalesListPageComponent,
-    CarSalesEditPageComponent,
-    VinCheckPageComponent,
     RecentPostsComponent,
     RecommendedPostsComponent,
     MostPopularBrandsComponent,
-    NavbarComponent,
-    FooterComponent
+    // Blog
+    BlogPageComponent,
+    BlogListPageComponent,
+    // Car Sales
+    CarSalesPageComponent,
+    CarSalesListPageComponent,
+    CarSalesEditPageComponent,
+    // User
+    ProfilePageComponent,
+    // Vin Check
+    VinCheckPageComponent,
   ],
   imports: [
     BrowserModule,
+    SharedModule,
     AppRoutingModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    AuthService
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

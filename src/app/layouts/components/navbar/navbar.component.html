@@ -11,15 +11,25 @@
 				<li>
 					<a href>MDL</a>
 				</li>
-				<li style="float:right">
-					<a class="active" href="#about">Войти</a>
-				</li>
-				<li style="float:right">
-					<a class="active" href="#about">Мои Объявления</a>
-				</li>
-				<li style="float:right">
-					<a class="active" href="#about">Последний поиск</a>
-				</li>
+				<div *ngIf="auth.isAuthenticated()">
+					<li style="float:right">
+						<a [routerLink]="['/signout']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Выход</a>
+					</li>
+					<li style="float:right">
+						<a class="active" href="#about">Мои Объявления</a>
+					</li>
+					<li style="float:right">
+						<a class="active" href="#about">Последний поиск</a>
+					</li>
+				</div>
+				<div *ngIf="!auth.isAuthenticated()">
+					<li style="float:right">
+						<a [routerLink]="['/signin']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Вход</a>
+					</li>
+					<li style="float:right">
+						<a [routerLink]="['/signup']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Регистрация</a>
+					</li>
+				</div>
 			</ul>
 		</div>
 	</div>
@@ -27,19 +37,22 @@
 		<div class="container">
 			<ul>
 				<li>
-					<a href>Главная</a>
+					<a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Главная</a>
 				</li>
 				<li>
-					<a href>Авторынок</a>
+					<a [routerLink]="['/car-sales']" routerLinkActive="active"
+						[routerLinkActiveOptions]="{ exact: true }">Авторынок</a>
 				</li>
 				<li>
-					<a href>Проверить VIN</a>
+					<a [routerLink]="['/check-vin']" routerLinkActive="active"
+						[routerLinkActiveOptions]="{ exact: true }">Проверить VIN</a>
 				</li>
 				<li>
-					<a href>Новости</a>
+					<a [routerLink]="['/blog']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Новости</a>
 				</li>
 				<li style="float:right">
-					<a class="active" href="#about">Добавить Объявления</a>
+					<a [routerLink]="['/car-sales/create']" routerLinkActive="active"
+						[routerLinkActiveOptions]="{ exact: true }">Добавить Объявления</a>
 				</li>
 			</ul>
 		</div>
