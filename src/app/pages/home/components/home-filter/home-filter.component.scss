@@ -1,0 +1,51 @@
+.filter-card {
+    max-width: 55%;
+  }
+  .filter-container {
+    .auto-types {
+      .btn-group {
+        button {
+          outline: none !important;
+          -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+          padding: 10px 40px;
+          img {
+            height: 40px;
+            width: 51px;
+          }
+        }
+      }
+      .btn-outline-secondary:hover {
+        background: #dedede !important;
+      }
+  
+      .btn-outline-secondary:active {
+        background: #c2c2c2 !important;
+      }
+    }
+    .filter-sets {
+      margin-top: 15px;
+      h5 {
+        margin-top: 20px;
+        font-size: 15px;
+        font-weight: 700;
+      }
+      select {
+        outline: none !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+      }
+      button {
+        outline: none !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+        padding: 10px 40px;
+      }
+      a {
+        color: #8f8f8f;
+      }
+      a:hover {
+        color: rgb(71, 71, 71);
+      }
+    }
+  }
