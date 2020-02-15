@@ -12,16 +12,23 @@ import { BlogListPageComponent } from './pages/blog/blog-list-page/blog-list-pag
 import { CarSalesListPageComponent } from './pages/car-sales/car-sales-list-page/car-sales-list-page.component';
 import { CarSalesEditPageComponent } from './pages/car-sales/car-sales-edit-page/car-sales-edit-page.component';
 import { VinCheckPageComponent } from './pages/vin/vin-check-page/vin-check-page.component';
-import { FilterComponent } from './pages/home/components/filter/filter.component';
 import { RecentPostsComponent } from './pages/home/components/recent-posts/recent-posts.component';
 import { RecommendedPostsComponent } from './pages/home/components/recommended-posts/recommended-posts.component';
 import { MostPopularBrandsComponent } from './pages/home/components/most-popular-brands/most-popular-brands.component';
+import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+import { NavbarComponent } from './layouts/components/navbar/navbar.component';
+import { FooterComponent } from './layouts/components/footer/footer.component';
+import { HomeFilterComponent } from './pages/home/components/home-filter/home-filter.component';
+import { HomePageComponent } from './pages/home/home-page/home-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    MainLayoutComponent,
     LoginPageComponent,
     RegisterPageComponent,
+    HomePageComponent,
+    HomeFilterComponent,
     BlogPageComponent,
     CarSalesPageComponent,
     ProfilePageComponent,
@@ -29,10 +36,11 @@ import { MostPopularBrandsComponent } from './pages/home/components/most-popular
     CarSalesListPageComponent,
     CarSalesEditPageComponent,
     VinCheckPageComponent,
-    FilterComponent,
     RecentPostsComponent,
     RecommendedPostsComponent,
-    MostPopularBrandsComponent
+    MostPopularBrandsComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
