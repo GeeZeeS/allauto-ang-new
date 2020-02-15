@@ -1,1 +1,48 @@
-<p>register-page works!</p>
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-6">
+      <div class="card">
+        <form [formGroup]="form" (ngSubmit)="submit()">
+          <div id="login_form">
+            <h2 class="mb-4">Регистрация</h2>
+            <div class="form-group">
+              <label for="email">Эл. Почта</label>
+              <input class="form-control" type="email" name="email" id="email" formControlName="email" />
+              <div class="validation" *ngIf="form.get('email').touched && form.get('email').invalid">
+                <small *ngIf="form.get('email').errors.required">Эл. Почта не может быть пуста</small>
+                <small *ngIf="form.get('email').errors.email">Не верный формат Эл. Почты</small>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password">Пароль</label>
+              <input class="form-control" type="password" name="password" id="password" formControlName="password" />
+              <div class="validation" *ngIf="
+                  form.get('password').touched && form.get('password').invalid
+                ">
+                <small *ngIf="form.get('password').errors.required">Пароль не может быть пуст</small>
+                <small *ngIf="form.get('password').errors.minlength">Пароль слишком короткий, должен иметь минимум 8
+                  символов</small>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password">Подтверждение Пароля</label>
+              <input class="form-control" type="password" name="password_confirm" id="password_confirm"
+                formControlName="password_confirm" />
+              <div class="validation" *ngIf="
+                  form.get('password_confirm').touched && form.get('password_confirm').invalid
+                ">
+                <small *ngIf="form.get('password_confirm').errors.required">Подтверждение Пароля не может быть
+                  пуста</small>
+                <small *ngIf="form.get('password_confirm').errors.minlength">Подтверждение Пароля слишком короткое,
+                  должно иметь минимум 8 символов</small>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary float-right  rounded-0">
+              Enter
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

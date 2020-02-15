@@ -1,60 +1,63 @@
 <div id="nav-main">
-	<div class="nav-upper">
-		<div class="container">
-			<ul>
-				<li>
-					<a href>Обратная Связь</a>
-				</li>
-				<li>
-					<a href>Русский</a>
-				</li>
-				<li>
-					<a href>MDL</a>
-				</li>
-				<div *ngIf="auth.isAuthenticated()">
-					<li style="float:right">
-						<a [routerLink]="['/signout']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Выход</a>
-					</li>
-					<li style="float:right">
-						<a class="active" href="#about">Мои Объявления</a>
-					</li>
-					<li style="float:right">
-						<a class="active" href="#about">Последний поиск</a>
-					</li>
-				</div>
-				<div *ngIf="!auth.isAuthenticated()">
-					<li style="float:right">
-						<a [routerLink]="['/signin']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Вход</a>
-					</li>
-					<li style="float:right">
-						<a [routerLink]="['/signup']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Регистрация</a>
-					</li>
-				</div>
-			</ul>
-		</div>
-	</div>
-	<div class="nav-bottom">
-		<div class="container">
-			<ul>
-				<li>
-					<a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Главная</a>
-				</li>
-				<li>
-					<a [routerLink]="['/car-sales']" routerLinkActive="active"
-						[routerLinkActiveOptions]="{ exact: true }">Авторынок</a>
-				</li>
-				<li>
-					<a [routerLink]="['/check-vin']" routerLinkActive="active"
-						[routerLinkActiveOptions]="{ exact: true }">Проверить VIN</a>
-				</li>
-				<li>
-					<a [routerLink]="['/blog']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Новости</a>
-				</li>
-				<li style="float:right">
-					<a [routerLink]="['/car-sales/create']" routerLinkActive="active"
-						[routerLinkActiveOptions]="{ exact: true }">Добавить Объявления</a>
-				</li>
-			</ul>
-		</div>
-	</div>
+  <div class="nav-upper">
+    <div class="container">
+      <ul>
+        <li>
+          <a href>Обратная Связь</a>
+        </li>
+        <li>
+          <a href>Русский</a>
+        </li>
+        <li>
+          <a href>MDL</a>
+        </li>
+        <div *ngIf="auth.isAuthenticated()">
+          <li style="float:right">
+						<a href="#" (click)="logout($event)">Выход</a>
+          </li>
+          <li style="float:right">
+            <a class="active" href="#about">Мои Объявления</a>
+          </li>
+          <li style="float:right">
+            <a class="active" href="#about">Последний поиск</a>
+          </li>
+        </div>
+        <div *ngIf="!auth.isAuthenticated()">
+          <li style="float:right">
+            <a [routerLink]="['/signin']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Вход</a>
+          </li>
+          <li style="float:right">
+            <a [routerLink]="['/signup']" routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }">Регистрация</a>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+  <div class="nav-bottom">
+    <div class="container">
+      <ul>
+        <li>
+					<a 
+						[routerLink]="['/']" routerLinkActive="active" 
+						[routerLinkActiveOptions]="{ exact: true }">Главная</a>
+        </li>
+        <li>
+          <a [routerLink]="['/car-sales']" routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">Авторынок</a>
+        </li>
+        <li>
+          <a [routerLink]="['/check-vin']" routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">Проверить VIN</a>
+        </li>
+        <li>
+          <a [routerLink]="['/blog']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Новости</a>
+        </li>
+        <li style="float:right">
+          <a [routerLink]="['/car-sales/create']" routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">Добавить Объявления</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>

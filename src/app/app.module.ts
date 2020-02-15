@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { SharedModule } from './modules/shared.module';
 import { AuthService } from './services/auth.service';
@@ -23,6 +24,8 @@ import { NavbarComponent } from './layouts/components/navbar/navbar.component';
 import { FooterComponent } from './layouts/components/footer/footer.component';
 import { HomeFilterComponent } from './pages/home/components/home-filter/home-filter.component';
 import { HomePageComponent } from './pages/home/home-page/home-page.component';
+import { FormsModule } from '@angular/forms';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -54,11 +57,13 @@ import { HomePageComponent } from './pages/home/home-page/home-page.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     SharedModule,
     AppRoutingModule
   ],
   providers: [
-    AuthService
+    AuthService, AuthGuard
   ],
   bootstrap: [
     AppComponent

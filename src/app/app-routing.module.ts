@@ -11,6 +11,7 @@ import { CarSalesEditPageComponent } from './pages/car-sales/car-sales-edit-page
 import { VinCheckPageComponent } from './pages/vin/vin-check-page/vin-check-page.component';
 import { CarSalesPageComponent } from './pages/car-sales/car-sales-page/car-sales-page.component';
 import { BlogPageComponent } from './pages/blog/blog-page/blog-page.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 const routes: Routes = [
@@ -21,15 +22,14 @@ const routes: Routes = [
       // Authentication
       { path: 'signin', component: LoginPageComponent },
       { path: 'signup', component: RegisterPageComponent },
-      { path: 'signout', component: RegisterPageComponent },
       // Profile
-      { path: 'profile', component: ProfilePageComponent },
+      { path: 'profile', component: ProfilePageComponent, canActivate: [AuthGuard]  },
       // Car Sales
       { path: 'car-sales', component: CarSalesListPageComponent },
       { path: 'car-sales/:id/view', component: CarSalesPageComponent },
-      { path: 'car-sales/create', component: CarSalesEditPageComponent },
-      { path: 'car-sales/:id/edit', component: CarSalesEditPageComponent },
-      { path: 'car-sales/:id/delete', component: CarSalesEditPageComponent },
+      { path: 'car-sales/create', component: CarSalesEditPageComponent, canActivate: [AuthGuard] },
+      { path: 'car-sales/:id/edit', component: CarSalesEditPageComponent, canActivate: [AuthGuard]  },
+      { path: 'car-sales/:id/delete', component: CarSalesEditPageComponent, canActivate: [AuthGuard]  },
       // Vin Check
       { path: 'check-vin', component: VinCheckPageComponent },
       // Blog
