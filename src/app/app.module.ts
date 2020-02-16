@@ -29,6 +29,8 @@ import { FormsModule } from '@angular/forms';
 import { AuthGuard } from './guards/auth.guard';
 import { RecentBlogPostsComponent } from './pages/home/components/recent-blog-posts/recent-blog-posts.component';
 import { BlogService } from './services/blog.service';
+import { FeaturedCarComponent } from './pages/car-sales/car-sales-list-page/components/featured-car/featured-car.component';
+import { RecentCarsSalesListComponent } from './pages/car-sales/car-sales-list-page/components/recent-cars-sales-list/recent-cars-sales-list.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +60,8 @@ import { BlogService } from './services/blog.service';
     ProfilePageComponent,
     // Vin Check
     VinCheckPageComponent,
+    FeaturedCarComponent,
+    RecentCarsSalesListComponent,
   ],
   imports: [
     BrowserModule,

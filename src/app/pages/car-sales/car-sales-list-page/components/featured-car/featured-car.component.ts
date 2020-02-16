@@ -4,11 +4,11 @@ import { Subscription } from 'rxjs';
 import { CarSalesService } from 'src/app/services/car_sales.service';
 
 @Component({
-  selector: 'app-car-sales-list-page',
-  templateUrl: './car-sales-list-page.component.html',
-  styleUrls: ['./car-sales-list-page.component.scss']
+  selector: 'app-featured-car',
+  templateUrl: './featured-car.component.html',
+  styleUrls: ['./featured-car.component.scss']
 })
-export class CarSalesListPageComponent implements OnInit, OnDestroy {
+export class FeaturedCarComponent implements OnInit, OnDestroy {
 
   car_posts: CarPost[];
   pSub: Subscription;
