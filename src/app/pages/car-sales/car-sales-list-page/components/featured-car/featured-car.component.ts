@@ -18,7 +18,7 @@ export class FeaturedCarComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.getNewCarPosts('', '2', '', '', '', '', '');
+    this.getNewCarPosts('', '', '', '', '', '', '');
   }
 
   getNewCarPosts(

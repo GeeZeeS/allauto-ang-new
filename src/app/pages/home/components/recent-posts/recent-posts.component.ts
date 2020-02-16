@@ -25,7 +25,7 @@ export class RecentPostsComponent implements OnInit, OnDestroy {
     private carSalesService: CarSalesService,
   ) { }
   ngOnInit() {
-    this.getNewCarPosts('', '2', '', '', '', '', '');
+    this.getNewCarPosts('', '', '', '', '', '', '');
     // this.form = new FormGroup({
     //   car_condition: new FormControl(null, [Validators.required]),
     //   car_body: new FormControl(null, [Validators.required]),
