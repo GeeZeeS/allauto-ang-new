@@ -1,0 +1,17 @@
+<div class="row" *ngIf="blog_posts">
+  <div class="col-lg-4" *ngFor="let blog_post of blog_posts | slice: 0:6">
+    <div class="recent-posts">
+      <div class="post-image">
+        <a [routerLink]="['/blog/', blog_post.id, 'view']"><img src="{{ blog_post.image }}" class="img-fluid"></a>
+      </div>
+      <div class="post-title">
+        <a [routerLink]="['/blog/', blog_post.id, 'view']">
+          {{ blog_post.title }}
+        </a>
+      </div>
+      <div class="post-decription">
+				<span>{{ blog_post.plainText | slice: 0:130 }}</span>
+      </div>
+    </div>
+  </div>
+</div>
