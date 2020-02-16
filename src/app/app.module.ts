@@ -27,6 +27,8 @@ import { HomeFilterComponent } from './pages/home/components/home-filter/home-fi
 import { HomePageComponent } from './pages/home/home-page/home-page.component';
 import { FormsModule } from '@angular/forms';
 import { AuthGuard } from './guards/auth.guard';
+import { RecentBlogPostsComponent } from './pages/home/components/recent-blog-posts/recent-blog-posts.component';
+import { BlogService } from './services/blog.service';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { AuthGuard } from './guards/auth.guard';
     RecentPostsComponent,
     RecommendedPostsComponent,
     MostPopularBrandsComponent,
+    RecentBlogPostsComponent,
     // Blog
     BlogPageComponent,
     BlogListPageComponent,
@@ -64,7 +67,7 @@ import { AuthGuard } from './guards/auth.guard';
     AppRoutingModule
   ],
   providers: [
-    AuthService, AuthGuard, CarSalesService
+    AuthService, AuthGuard, CarSalesService, BlogService
   ],
   bootstrap: [
     AppComponent
