@@ -10,7 +10,7 @@ import { CarSalesService } from 'src/app/services/car_sales.service';
 })
 export class FeaturedCarComponent implements OnInit, OnDestroy {
 
-  car_posts: CarPost[];
+  car_featured_posts: CarPost[];
   pSub: Subscription;
 
   constructor(
@@ -18,7 +18,7 @@ export class FeaturedCarComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.getNewCarPosts('', '', '', '', '', '', '');
+    this.getNewCarPosts('', '', '', '', '', '', 1, '');
   }
 
   getNewCarPosts(
@@ -28,12 +28,13 @@ export class FeaturedCarComponent implements OnInit, OnDestroy {
     car_model: string,
     car_body: string,
     car_fuel: string,
+    page: number,
     user: string) {
     window.scroll(0, 0);
     this.pSub = this.carSalesService
-      .getCarPostsFiltered(id, car_condition, car_brand, car_model, car_body, car_fuel, user)
+      .getCarPostsFiltered(id, car_condition, car_brand, car_model, car_body, car_fuel, page, user)
       .subscribe(posts => {
-        this.car_posts = posts["results"];
+        this.car_featured_posts = posts["results"];
       });
   };
 

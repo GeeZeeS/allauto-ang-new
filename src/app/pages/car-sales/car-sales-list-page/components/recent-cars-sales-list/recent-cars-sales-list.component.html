@@ -1,1 +1,40 @@
-<p>recent-cars-sales-list works!</p>
+<div class="recent-car-posts-list" *ngFor="let post of car_posts">
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="car-post-container">
+        <div class="post-img">
+          <img src="https://api.allauto.md{{
+            post.car_images[0].image
+          }}" alt="" class="img-fluid">
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="post-title">
+        {{ post.car_brand.name }}
+        {{ post.car_model.name }}
+        {{ post.car_year }}
+      </div>
+      <div class="post-info">
+        <span><b>{{ post.car_condition.name }}</b>, </span><span>{{ post.car_brand.name }}, </span>
+        <span>{{ post.car_model.name }}, </span>
+        <span>{{ post.car_year }}, </span>
+        <span>{{ post.car_mileage }} km, </span><span>{{ post.car_body.name }}, </span>
+        <span>{{ post.car_color.name }}, </span>
+        <span>{{ post.car_fuel.name }} </span>
+      </div>
+      <div class="post-date">
+        {{ post.date | date:'d/M/y, H:mm' }}
+      </div>
+      <div class="user-info">
+        {{ post.user.first_name }} {{ post.user.last_name }} / {{ post.user.phone }}
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="post-price float-right">
+        {{ post.price | number }}{{ post.money_type.prefix }}
+      </div>
+    </div>
+  </div>
+  <hr>
+</div>

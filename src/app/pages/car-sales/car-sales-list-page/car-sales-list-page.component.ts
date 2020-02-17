@@ -2,45 +2,31 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CarPost } from 'src/app/interfaces/interfaces';
 import { Subscription } from 'rxjs';
 import { CarSalesService } from 'src/app/services/car_sales.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-car-sales-list-page',
   templateUrl: './car-sales-list-page.component.html',
   styleUrls: ['./car-sales-list-page.component.scss']
 })
-export class CarSalesListPageComponent implements OnInit, OnDestroy {
+export class CarSalesListPageComponent implements OnInit {
 
-  car_posts: CarPost[];
   pSub: Subscription;
+  page: number = 1;
 
   constructor(
-    private carSalesService: CarSalesService,
-  ) { }
+    private activatedRoute: ActivatedRoute
+  ) {
+    this.activatedRoute.queryParams.subscribe(params => {
+      if(params['page_number'] && params['page_number'] > 1){
+        this.page = params['page_number'];
+        console.log(this.page);
+      }
+  })
+}
 
-  ngOnInit(): void {
-    this.getNewCarPosts('', '2', '', '', '', '', '');
-  }
+ngOnInit(): void {
 
-  getNewCarPosts(
-    id: string,
-    car_condition: string,
-    car_brand: string,
-    car_model: string,
-    car_body: string,
-    car_fuel: string,
-    user: string) {
-    window.scroll(0, 0);
-    this.pSub = this.carSalesService
-      .getCarPostsFiltered(id, car_condition, car_brand, car_model, car_body, car_fuel, user)
-      .subscribe(posts => {
-        this.car_posts = posts["results"];
-      });
-  };
-
-  ngOnDestroy() {
-    if (this.pSub) {
-      this.pSub.unsubscribe();
-    }
-  }
+}
 
 }

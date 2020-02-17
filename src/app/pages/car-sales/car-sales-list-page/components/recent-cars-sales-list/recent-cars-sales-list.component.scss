@@ -1,0 +1,39 @@
+.recent-car-posts-list {
+  padding: 10px;
+
+  img {
+    height: 120px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .post-title {
+    margin-top: 5px;
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  .post-info {
+    margin-top: 5px;
+    font-weight: 500;
+    font-size: 12px;
+  }
+
+  .post-date {
+    margin-top: 5px;
+    font-weight: 700;
+    font-size: 11px;
+  }
+
+  .user-info {
+    font-weight: 500;
+    font-size: 12px;
+  }
+
+  .post-price {
+    margin-top: 5px;
+    margin-right: 10px;
+    font-weight: 700;
+    font-size: 16px;
+  }
+}
