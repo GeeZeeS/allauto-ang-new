@@ -28,7 +28,6 @@ export class CarSalesListPageComponent implements OnInit {
       }
       if(params['car_condition'] && params['car_condition'] != ''){
         this.car_condition = params['car_condition'];
-        console.log(this.car_condition)
       }
       if(params['car_brand'] && params['car_brand'] != ''){
         this.car_brand = params['car_brand'];
