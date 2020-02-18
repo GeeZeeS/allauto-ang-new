@@ -38,7 +38,14 @@
           </div>
         </div>
         <div class="card mt-4">
-          <app-recent-cars-sales-list (element)="page"></app-recent-cars-sales-list>
+          <app-recent-cars-sales-list 
+            [page]="page" 
+            [car_condition]="car_condition" 
+            [car_brand]="car_brand" 
+            [car_model]="car_model" 
+            [car_body]="car_body" 
+            [car_fuel]="car_fuel">
+          </app-recent-cars-sales-list>
         </div>
       </div>
     </div>

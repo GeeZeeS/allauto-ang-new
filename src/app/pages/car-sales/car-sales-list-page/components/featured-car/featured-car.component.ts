@@ -18,7 +18,7 @@ export class FeaturedCarComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.getNewCarPosts('', '', '', '', '', '', 1, '');
+    this.getNewCarPosts('', '', '', '', '', '', '1', '');
   }
 
   getNewCarPosts(
@@ -28,7 +28,7 @@ export class FeaturedCarComponent implements OnInit, OnDestroy {
     car_model: string,
     car_body: string,
     car_fuel: string,
-    page: number,
+    page: string,
     user: string) {
     window.scroll(0, 0);
     this.pSub = this.carSalesService

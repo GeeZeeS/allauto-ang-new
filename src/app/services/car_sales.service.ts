@@ -171,7 +171,7 @@ export class CarSalesService {
         car_model: string,
         car_body: string,
         car_fuel: string,
-        page: number,
+        page: string,
         user?: string
     ): Observable<CarPost> {
         var url = `/car_post/?id=${id}&car_condition=${car_condition}&car_brand=${car_brand}&car_model=${car_model}&car_body=${car_body}&car_fuel=${car_fuel}&page=${page}&user=${user}`

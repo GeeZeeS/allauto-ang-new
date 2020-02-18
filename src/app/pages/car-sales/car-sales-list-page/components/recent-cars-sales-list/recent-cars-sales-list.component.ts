@@ -13,15 +13,28 @@ export class RecentCarsSalesListComponent implements OnInit, OnDestroy {
 
   car_posts: CarPost[];
   pSub: Subscription;
-  private page:number = 1;
-  pages:number = 0;
+  @Input() page:string;
+  @Input() car_condition:string;
+  @Input() car_brand:string;
+  @Input() car_model:string;
+  @Input() car_body:string;
+  @Input() car_fuel:string;
+  pages:string;
 
   constructor(
     private carSalesService: CarSalesService
   ) { }
 
   ngOnInit(): void {
-    this.getNewCarPosts('', '', '', '', '', '', this.page, '');
+    this.getNewCarPosts(
+      '', 
+      this.car_condition, 
+      this.car_brand, 
+      this.car_model, 
+      this.car_body, 
+      this.car_fuel, 
+      this.page, 
+      '');
   }
 
   getNewCarPosts(
@@ -31,7 +44,7 @@ export class RecentCarsSalesListComponent implements OnInit, OnDestroy {
     car_model: string,
     car_body: string,
     car_fuel: string,
-    page: number,
+    page: string,
     user: string) {
     window.scroll(0, 0);
     this.pSub = this.carSalesService
@@ -41,10 +54,10 @@ export class RecentCarsSalesListComponent implements OnInit, OnDestroy {
         var p = parseInt(posts['count'])
         var value = Math.floor(p / 10);
         if(value > 0){
-          this.pages = value
+          this.pages = value.toString()
         }
         else{
-          this.pages = 1
+          this.pages = '1'
         }
       });
   };
