@@ -53,15 +53,15 @@ import { RecentCarsSalesListComponent } from './pages/car-sales/car-sales-list-p
     BlogPageComponent,
     BlogListPageComponent,
     // Car Sales
-    CarSalesPageComponent,
     CarSalesListPageComponent,
+    FeaturedCarComponent,
+    RecentCarsSalesListComponent,
+    CarSalesPageComponent,
     CarSalesEditPageComponent,
     // User
     ProfilePageComponent,
     // Vin Check
-    VinCheckPageComponent,
-    FeaturedCarComponent,
-    RecentCarsSalesListComponent,
+    VinCheckPageComponent
   ],
   imports: [
     BrowserModule,
