@@ -1,0 +1,72 @@
+.featured-car-post {
+  .row {
+    img {
+      height: 170px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .car-title {
+      margin-top: 10px;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .car-description {
+      margin-top: 10px;
+      font-weight: 500;
+      font-size: 12px;
+    }
+
+    .car-dealer {
+      margin-top: 10px;
+
+      img {
+        height: 50px;
+        width: 50px;
+        object-fit: cover;
+      }
+
+      .dealer-info {
+        margin: 10px 2px;
+
+        .dealer-name {
+          h5 {
+            font-weight: 500;
+            font-size: 13px;
+          }
+        }
+        .dealer-rating {
+          h4 {
+            font-weight: 500;
+            font-size: 13px;
+            float: right;
+            margin-top: -5px;
+            margin-right: 10px;
+            .checked {
+              color: orange;
+            }
+          }
+        }
+
+        .dealer-phone {
+          margin-top: -7px;
+          font-weight: 700;
+          font-size: 13px;
+        }
+
+        .dealer-address {
+          font-weight: 500;
+          font-size: 10px;
+        }
+      }
+    }
+
+    .car-price {
+      margin-top: 10px;
+      margin-right: 10px;
+      font-weight: 700;
+      font-size: 16px;
+    }
+  }
+}

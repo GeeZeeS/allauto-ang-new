@@ -1,0 +1,61 @@
+<div class="featured-car-post mb-4" *ngFor="let post of car_featured_posts | slice: 0:1">
+  <div class="row">
+    <div class="col-lg-4">
+      <img src="https://api.allauto.md{{
+        post.car_images[0].image
+      }}" alt="" class="img-fluid">
+    </div>
+    <div class="col-lg-8">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="car-title">
+            {{ post.car_brand.name }}
+            {{ post.car_model.name }}
+            {{ post.car_year }}
+          </div>
+          <div class="car-description">
+            <span><b>{{ post.car_condition.name }}</b>, </span><span>{{ post.car_brand.name }}, </span>
+            <span>{{ post.car_model.name }}, </span>
+            <span>{{ post.car_year }}, </span>
+            <span>{{ post.car_mileage }} km, </span><span>{{ post.car_body.name }}, </span>
+            <span>{{ post.car_color.name }}, </span>
+            <span>{{ post.car_fuel.name }} </span>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="car-price float-right">
+            {{ post.price | number }}{{ post.money_type.prefix }}
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <div class="car-dealer">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="card">
+                  <div class="dealer-info ml-2">
+                    <div class="dealer-name">
+                      <h5>Jütten & Koolen Automobile GmbH </h5>
+                    </div>
+                    <div class="dealer-rating">
+                      <h4><span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span></h4>
+                    </div>
+                    <div class="dealer-phone">
+                      Phone: +49 (0)2455 930210
+                    </div>
+                    <div class="dealer-address">
+                      DE-52525 Waldfeucht, Dealer
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

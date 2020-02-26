@@ -5,4 +5,74 @@
       <li class="breadcrumb-item active" aria-current="page">Авторынок</li>
     </ol>
   </nav>
+  <div class="car-sales-container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="filter-container">
+              <h6 class="card-title">Фильтр</h6>
+              <div class="hline mb-2"></div>
+              <div class="row">
+                <div class="col-lg-12 mb-3">
+                  <small>СОСТОЯНИЕ</small>
+                  <select class="form-control" [(ngModel)]='carConditionSelect' (change)="onConditionChange($event)">
+                    <option value="">-- Все --</option>
+                    <option value="{{condition.id}}" *ngFor="let condition of car_conditions">{{condition.name}}</option>
+                  </select>
+                </div>
+                <div class="col-lg-12 mb-3">
+                  <small>Брэнд</small>
+                  <select class="form-control" [(ngModel)]='carBrandSelect' (change)="onBrandChange($event)">
+                    <option value="">-- Все --</option>
+                    <option value="{{brand.id}}" *ngFor="let brand of car_brands">{{brand.name}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="card">
+          <div class="card-body">
+            <app-featured-car></app-featured-car>
+          </div>
+        </div>
+        <div class="card mt-4">
+          <div class="cars-count">
+            <small>Сортировать</small>
+            <div class="row">
+              <div class="col-lg-4">
+                <select class="form-control" [(ngModel)]='orderSelect' (change)="onOrderChange($event)">
+                  <option value="-id">Сперва новое</option>
+                  <option value="id">Сперва старое</option>
+                  <option value="-price">Цена по возрастанию</option>
+                  <option value="price">Цена по убыванию</option>
+                </select>
+              </div>
+              <div class="col-lg-4"></div>
+              <div class="col-lg-4">
+                <div class="cco">
+                  <h6 class="float-right">Всего {{posts_count}} Авто</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hline mb-2"></div>
+          <app-recent-cars-sales-list 
+          [page]="page" 
+          [car_condition]="car_condition" 
+          [car_brand]="car_brand"
+          [car_model]="car_model" 
+          [car_body]="car_body" 
+          [car_fuel]="car_fuel" 
+          [ordering]="ordering" 
+          (posts_count)="getMessage($event)"
+          >
+          </app-recent-cars-sales-list>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

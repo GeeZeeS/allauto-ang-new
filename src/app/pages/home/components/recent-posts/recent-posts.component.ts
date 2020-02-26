@@ -25,7 +25,7 @@ export class RecentPostsComponent implements OnInit, OnDestroy {
     private carSalesService: CarSalesService,
   ) { }
   ngOnInit() {
-    this.getNewCarPosts('', '2', '', '', '', '', '');
+    this.getNewCarPosts('', '', '', '', '', '', '');
     // this.form = new FormGroup({
     //   car_condition: new FormControl(null, [Validators.required]),
     //   car_body: new FormControl(null, [Validators.required]),
@@ -74,7 +74,7 @@ export class RecentPostsComponent implements OnInit, OnDestroy {
     user: string) {
     window.scroll(0, 0);
     this.pSub = this.carSalesService
-      .getCarPostsFiltered(id, car_condition, car_brand, car_model, car_body, car_fuel, user)
+      .getCarPostsFiltered(id, car_condition, car_brand, car_model, car_body, car_fuel, '1' ,user)
       .subscribe(posts => {
         this.car_posts = posts["results"];
       });
