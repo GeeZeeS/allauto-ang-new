@@ -172,9 +172,9 @@ export class CarSalesService {
         car_body: string,
         car_fuel: string,
         page: string,
-        user?: string
+        ordering: string
     ): Observable<CarPost> {
-        var url = `/car_post/?id=${id}&car_condition=${car_condition}&car_brand=${car_brand}&car_model=${car_model}&car_body=${car_body}&car_fuel=${car_fuel}&page=${page}&user=${user}`
+        var url = `/car_post/?id=${id}&car_condition=${car_condition}&car_brand=${car_brand}&car_model=${car_model}&car_body=${car_body}&car_fuel=${car_fuel}&page=${page}&ordering=${ordering}`
         return this.http.get(this.baseurl + url)
             .pipe(map((response: any) => {
                 return response
