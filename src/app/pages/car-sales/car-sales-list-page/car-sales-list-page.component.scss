@@ -7,9 +7,38 @@ ol {
 }
 
 .car-sales-container {
-  select {
-    outline: none !important;
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
+  .filter-container {
+    h6 {
+      font-size: 14px;
+    }
+    small {
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+    select {
+      outline: none !important;
+      -webkit-box-shadow: none !important;
+      box-shadow: none !important;
+    }
+  }
+  .cars-count{
+    small {
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+    select {
+      outline: none !important;
+      -webkit-box-shadow: none !important;
+      box-shadow: none !important;
+    }
+    margin: 20px;
+    .cco{
+      h6{
+        text-transform: uppercase;
+        margin-top: 10px;
+        font-size: 14px;
+        font-weight: 900;
+      }
+    }
   }
 }

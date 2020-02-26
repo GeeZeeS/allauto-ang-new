@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { CarCondition, CarBrand } from 'src/app/interfaces/interfaces';
 import { HttpClient,HttpParams } from '@angular/common/http';
+import { CarSalesService } from 'src/app/services/car_sales.service';
 
 @Component({
   selector: 'app-car-sales-list-page',
@@ -10,8 +12,9 @@ import { HttpClient,HttpParams } from '@angular/common/http';
 })
 
 export class CarSalesListPageComponent implements OnInit {
+
   posts_count: string;
-  pSub: Subscription;
+  
   page: string = '1';
   car_condition: string = '';
   car_brand: string = '';
@@ -19,12 +22,22 @@ export class CarSalesListPageComponent implements OnInit {
   car_body: string = '';
   car_fuel: string = '';
   ordering: string = '-id';
+
   orderSelect = ''
+
+  carConditionSelect = ''
+  car_conditions: CarCondition;
+  
+  carBrandSelect = ''
+  car_brands: CarBrand;
+
+  pSub: Subscription;
 
   params = new HttpParams()
 
   constructor(
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private carSalesService: CarSalesService
   ) {
     this.activatedRoute.queryParams.subscribe(params => {
       if (params['page'] && params['page'] != '') {
@@ -51,8 +64,17 @@ export class CarSalesListPageComponent implements OnInit {
       }
     })
   }
+
   onOrderChange(event: any){
     this.ordering = event.target.value
+  }
+
+  onConditionChange(event: any){
+    this.car_condition = event.target.value
+  }
+
+  onBrandChange(event: any){
+    this.car_brand = event.target.value
   }
 
   getMessage(message: string) {
@@ -60,7 +82,25 @@ export class CarSalesListPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getCarCondition();
+    this.getCarBrand();
     this.orderSelect = this.ordering;
+  }
+
+  getCarCondition(){
+    this.pSub = this.carSalesService
+      .getCarConditions(0)
+      .subscribe(conditions => {
+        this.car_conditions = conditions;
+      });
+  }
+
+  getCarBrand(){
+    this.pSub = this.carSalesService
+      .getCarBrands(0)
+      .subscribe(brands => {
+        this.car_brands = brands;
+      });
   }
 
 }
