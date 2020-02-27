@@ -1,21 +1,31 @@
-<div class="container">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a [routerLink]="['/']">Главная</a></li>
-      <li class="breadcrumb-item"><a [routerLink]="['/car-sales']">Авторынок</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Auto Name</li>
-    </ol>
+<div class="container" *ngIf="car_post">
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a [routerLink]="['/']">Главная</a></li>
+			<li class="breadcrumb-item"><a [routerLink]="['/car-sales']">Авторынок</a></li>
+			<li class="breadcrumb-item active" aria-current="page">{{ car_post.car_brand.name }}
+				{{ car_post.car_model.name }}
+				{{ car_post.car_year }}</li>
+		</ol>
 	</nav>
 	<div class="row">
 		<div class="col-lg-8">
 			<div class="car-post-container">
-				<div class="card mb-4">
+				<div class="card mb-3">
 					<div class="card-body">
 						<div class="car-post-header">
-							<div class="post-name"></div>
-							<div class="post-price"></div>
+							<div class="post-name">
+								{{ car_post.car_brand.name }}
+								{{ car_post.car_model.name }}
+								{{ car_post.car_year }}
+								<div class="post-price float-right">
+									{{ car_post.price | number }} {{ car_post.money_type.prefix }}
+								</div>
+							</div>
 						</div>
-						<div class="car-post-image-slider"></div>
+						<div class="car-post-image-slider">
+							
+						</div>
 					</div>
 				</div>
 				<div class="card">
@@ -27,7 +37,7 @@
 
 						</div>
 						<div class="car-post-comfort-features">
-							
+
 						</div>
 					</div>
 				</div>

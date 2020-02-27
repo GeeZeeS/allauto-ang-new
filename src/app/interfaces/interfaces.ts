@@ -192,7 +192,7 @@ export interface CarPost{
   car_notes: string
   vin_number?: string
   price: string
-  money_type: string
+  money_type: any
   user: Profile
   date: string
 
