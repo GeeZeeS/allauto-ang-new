@@ -1,1 +1,46 @@
-<p>car-sales-page works!</p>
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['/']">Главная</a></li>
+      <li class="breadcrumb-item"><a [routerLink]="['/car-sales']">Авторынок</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Auto Name</li>
+    </ol>
+	</nav>
+	<div class="row">
+		<div class="col-lg-8">
+			<div class="car-post-container">
+				<div class="card mb-4">
+					<div class="card-body">
+						<div class="car-post-header">
+							<div class="post-name"></div>
+							<div class="post-price"></div>
+						</div>
+						<div class="car-post-image-slider"></div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-body">
+						<div class="car-post-tech-data">
+
+						</div>
+						<div class="car-post-safety-features">
+
+						</div>
+						<div class="car-post-comfort-features">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="seller-info">
+				<div class="card">
+					<div class="card-body">
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
