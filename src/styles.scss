@@ -6,3 +6,13 @@ body {
 }
 .hline { width:100%; height:1px; background: rgb(226, 226, 226) }
 .hline-margin { width:100%; height:1px; background: rgb(226, 226, 226); margin-top: 20px; }
+
+div[class^="col-"] {
+  padding-left: 2.5px;
+  padding-right: 2.5px;
+}
+
+.row {
+  margin-left: -2.5px;
+  margin-right: -2.5px;
+}
