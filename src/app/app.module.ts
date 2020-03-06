@@ -1,3 +1,5 @@
+import 'hammerjs';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -31,6 +33,7 @@ import { RecentBlogPostsComponent } from './pages/home/components/recent-blog-po
 import { BlogService } from './services/blog.service';
 import { FeaturedCarComponent } from './pages/car-sales/car-sales-list-page/components/featured-car/featured-car.component';
 import { RecentCarsSalesListComponent } from './pages/car-sales/car-sales-list-page/components/recent-cars-sales-list/recent-cars-sales-list.component';
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 
 @NgModule({
   declarations: [
@@ -68,7 +71,8 @@ import { RecentCarsSalesListComponent } from './pages/car-sales/car-sales-list-p
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxGalleryModule
   ],
   providers: [
     AuthService, AuthGuard, CarSalesService, BlogService

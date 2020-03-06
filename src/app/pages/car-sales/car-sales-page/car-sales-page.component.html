@@ -23,21 +23,261 @@
 								</div>
 							</div>
 						</div>
-						<div class="car-post-image-slider">
-							
+						<div class="car-post-image-slider mt-3" *ngIf="galleryImages && galleryImages.length">
+							<ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
 						</div>
 					</div>
 				</div>
-				<div class="card">
+				<div class="card mb-3">
 					<div class="card-body">
 						<div class="car-post-tech-data">
-
+							<div class="title">
+								Техничесские Данные
+							</div>
+							<div class="hline mb-3"></div>
+							<div class="options">
+								<div class="row">
+									<div class="col-lg-6">
+										<div class="content">Цена</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="response">{{ car_post.price | number }} {{ car_post.money_type.prefix }}</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="content">Брэнд</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="response">{{ car_post.car_brand.name }}</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="content">Модель</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="response">{{ car_post.car_model.name }}</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="content">Год</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="response">{{ car_post.car_year }}</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="content">Состояние</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="response">{{ car_post.car_condition.name }}</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="content">Пробег</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="response">{{ car_post.car_mileage }} км</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="content">Кузов</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="response">{{ car_post.car_body.name }}</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="content">КПП</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="response">{{ car_post.car_transmission.name }}</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="content">Привод</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="response">{{ car_post.car_wheel_drive.name }}</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="content">Топливо</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="response">{{ car_post.car_fuel.name }}</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="content">Цвет</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="response">{{ car_post.car_color.name }}</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="content">Регион</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="response">{{ car_post.car_region.name }}</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="content">VIN номер</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="response">{{ car_post.vin_number }}</div>
+									</div>
+								</div>
+							</div>
 						</div>
-						<div class="car-post-safety-features">
+						<div class="car-post-safety-features mt-3">
+							<div class="title">
+								Безопасность
+							</div>
+							<div class="hline mb-3"></div>
+							<div class="lists-inline">
+								<div class="row">
+									<div class="col-lg-6">
+										<ul>
+											<li><i *ngIf="car_post.car_safety.abs" class="fa fa-check-circle"></i><i
+													*ngIf="!car_post.car_safety.abs" class="fa fa-circle"></i>Антиблокировочная система</li>
+											<li><i *ngIf="car_post.car_safety.airbag" class="fa fa-check-circle"></i><i
+													*ngIf="!car_post.car_safety.airbag" class="fa fa-circle"></i>Подушка безопасности водителя
+											</li>
+											<li><i *ngIf="car_post.car_safety.alarm" class="fa fa-check-circle"></i><i
+													*ngIf="!car_post.car_safety.alarm" class="fa fa-circle"></i>Противоугонная сигнализация</li>
+											<li><i *ngIf="car_post.car_safety.all_season_tires" class="fa fa-check-circle"></i><i
+													*ngIf="!car_post.car_safety.all_season_tires" class="fa fa-circle"></i>Всесезонные шины</li>
+											<li><i *ngIf="car_post.car_safety.anti_theft" class="fa fa-check-circle"></i><i
+													*ngIf="!car_post.car_safety.anti_theft" class="fa fa-circle"></i>Противоугонное устройство
+											</li>
+											<li><i *ngIf="car_post.car_safety.curtain" class="fa fa-check-circle"></i><i
+													*ngIf="!car_post.car_safety.curtain" class="fa fa-circle"></i>Шторки безопасности</li>
+											<li><i *ngIf="car_post.car_safety.esp" class="fa fa-check-circle"></i><i
+													*ngIf="!car_post.car_safety.esp" class="fa fa-check-circle"></i>Система стабилизации</li>
+											<li><i *ngIf="car_post.car_safety.fog_lights" class="fa fa-check-circle"></i><i
+													*ngIf="!car_post.car_safety.fog_lights" class="fa fa-circle"></i>Противотуманные фары</li>
+											<li><i *ngIf="car_post.car_safety.head_washer" class="fa fa-check-circle"></i><i
+													*ngIf="!car_post.car_safety.head_washer" class="fa fa-circle"></i>Омыватель фар</li>
+											<li><i *ngIf="car_post.car_safety.light_sensor" class="fa fa-check-circle"></i><i
+													*ngIf="!car_post.car_safety.light_sensor" class="fa fa-circle"></i>Датчик света</li>
+											<li><i *ngIf="car_post.car_safety.multi_wheel" class="fa fa-check-circle"></i><i
+													*ngIf="!car_post.car_safety.multi_wheel" class="fa fa-circle"></i>Многофункциональный руль
+											</li>
+										</ul>
+									</div>
+									<div class="col-lg-6">
+										<ul>
+											<li><i *ngIf="car_post.car_safety.parking_sensor" class="fa fa-check-circle"></i><i
+													*ngIf="!car_post.car_safety.parking_sensor" class="fa fa-circle"></i>Датчик парковки</li>
+											<li><i *ngIf="car_post.car_safety.passenger_airbag" class="fa fa-check-circle"></i><i
+													*ngIf="!car_post.car_safety.passenger_airbag" class="fa fa-circle"></i>Подушка безопасности
+												пассажира</li>
+											<li><i *ngIf="car_post.car_safety.rain_sensor" class="fa fa-check-circle"></i><i
+													*ngIf="!car_post.car_safety.rain_sensor" class="fa fa-circle"></i>Датчик дождя</li>
+											<li><i *ngIf="car_post.car_safety.rear_airbag" class="fa fa-check-circle"></i><i
+													*ngIf="!car_post.car_safety.rear_airbag" class="fa fa-circle"></i>Боковые подушки безопасности
+											</li>
+											<li><i *ngIf="car_post.car_safety.simple_disks" class="fa fa-check-circle"></i><i
+													*ngIf="!car_post.car_safety.simple_disks" class="fa fa-circle"></i>Легкосплавные колесные
+												диски</li>
+											<li><i *ngIf="car_post.car_safety.steel_disks" class="fa fa-check-circle"></i><i
+													*ngIf="!car_post.car_safety.steel_disks" class="fa fa-circle"></i>Стальные колесные диски</li>
+											<li><i *ngIf="car_post.car_safety.summer_tires" class="fa fa-check-circle"></i><i
+													*ngIf="!car_post.car_safety.summer_tires" class="fa fa-circle"></i>Летние шины</li>
+											<li><i *ngIf="car_post.car_safety.tcs" class="fa fa-check-circle"></i><i
+													*ngIf="!car_post.car_safety.tcs" class="fa fa-circle"></i>Зимние шины</li>
+											<li><i *ngIf="car_post.car_safety.winter_tires" class="fa fa-check-circle"></i><i
+													*ngIf="!car_post.car_safety.winter_tires" class="fa fa-circle"></i>Антипробуксовочная система
+											</li>
+											<li><i *ngIf="car_post.car_safety.xenon" class="fa fa-check-circle"></i><i
+													*ngIf="!car_post.car_safety.xenon" class="fa fa-circle"></i>Ксеноновые фары</li>
+										</ul>
+									</div>
+								</div>
+							</div>
 
+							<div class="car-post-comfort-features mt-3">
+								<div class="title">
+									Комфорт
+								</div>
+								<div class="hline mb-3"></div>
+								<div class="lists-inline">
+									<div class="row">
+										<div class="col-lg-6">
+											<ul>
+												<li><i *ngIf="car_post.car_comfort.audio_system" class="fa fa-check-circle"></i><i
+														*ngIf="!car_post.car_comfort.audio_system" class="fa fa-circle"></i>Аудиосистема</li>
+												<li><i *ngIf="car_post.car_comfort.blacked_windows" class="fa fa-check-circle"></i><i
+														*ngIf="!car_post.car_comfort.blacked_windows" class="fa fa-circle"></i>Тонированные стекла
+												</li>
+												<li><i *ngIf="car_post.car_comfort.central_lock" class="fa fa-check-circle"></i><i
+														*ngIf="!car_post.car_comfort.central_lock" class="fa fa-circle"></i>Центральный замок</li>
+												<li><i *ngIf="car_post.car_comfort.chair_warmer" class="fa fa-check-circle"></i><i
+														*ngIf="!car_post.car_comfort.chair_warmer" class="fa fa-circle"></i>Подогрев сидений</li>
+												<li><i *ngIf="car_post.car_comfort.climate_control" class="fa fa-check-circle"></i><i
+														*ngIf="!car_post.car_comfort.climate_control" class="fa fa-circle"></i>Климат-контроль</li>
+												<li><i *ngIf="car_post.car_comfort.cloth" class="fa fa-check-circle"></i><i
+														*ngIf="!car_post.car_comfort.cloth" class="fa fa-circle"></i>Обивка салона ткань</li>
+												<li><i *ngIf="car_post.car_comfort.computer" class="fa fa-check-circle"></i><i
+														*ngIf="!car_post.car_comfort.computer" class="fa fa-check-circle"></i>Бортовой компьютер
+												</li>
+												<li><i *ngIf="car_post.car_comfort.conditioner" class="fa fa-check-circle"></i><i
+														*ngIf="!car_post.car_comfort.conditioner" class="fa fa-circle"></i>Кондиционер</li>
+												<li><i *ngIf="car_post.car_comfort.cruise_control" class="fa fa-check-circle"></i><i
+														*ngIf="!car_post.car_comfort.cruise_control" class="fa fa-circle"></i>Круиз-контроль</li>
+												<li><i *ngIf="car_post.car_comfort.fr_window_system" class="fa fa-check-circle"></i><i
+														*ngIf="!car_post.car_comfort.fr_window_system" class="fa fa-circle"></i>Электрорегулировка
+													боковых зеркал</li>
+											</ul>
+										</div>
+										<div class="col-lg-6">
+											<ul>
+												<li><i *ngIf="car_post.car_comfort.leather" class="fa fa-check-circle"></i><i
+														*ngIf="!car_post.car_comfort.leather" class="fa fa-circle"></i>Кожаный салон</li>
+												<li><i *ngIf="car_post.car_comfort.main_chair_system" class="fa fa-check-circle"></i><i
+														*ngIf="!car_post.car_comfort.main_chair_system" class="fa fa-circle"></i>Электрорегулировка
+													вод. сиденья</li>
+												<li><i *ngIf="car_post.car_comfort.second_chair_system" class="fa fa-check-circle"></i><i
+														*ngIf="!car_post.car_comfort.second_chair_system"
+														class="fa fa-circle"></i>Электрорегулировка пасс. сиденья</li>
+												<li><i *ngIf="car_post.car_comfort.up_window" class="fa fa-check-circle"></i><i
+														*ngIf="!car_post.car_comfort.up_window" class="fa fa-circle"></i>Электростеклоподъемники
+												</li>
+												<li><i *ngIf="car_post.car_comfort.velour" class="fa fa-check-circle"></i><i
+														*ngIf="!car_post.car_comfort.velour" class="fa fa-circle"></i>Велюровый салон</li>
+												<li><i *ngIf="car_post.car_comfort.wheel_strength" class="fa fa-check-circle"></i><i
+														*ngIf="!car_post.car_comfort.wheel_strength" class="fa fa-circle"></i>Усилитель руля</li>
+												<li><i *ngIf="car_post.car_comfort.wheel_width" class="fa fa-check-circle"></i><i
+														*ngIf="!car_post.car_comfort.wheel_width" class="fa fa-circle"></i>Регулируемая рулевая
+													колонка</li>
+												<li><i *ngIf="car_post.car_comfort.window_warmer" class="fa fa-check-circle"></i><i
+														*ngIf="!car_post.car_comfort.window_warmer" class="fa fa-circle"></i>Подогрев боковых зеркал
+												</li>
+												<li><i *ngIf="car_post.car_comfort.gps_tv_dvd" class="fa fa-check-circle"></i><i
+														*ngIf="!car_post.car_comfort.gps_tv_dvd" class="fa fa-circle"></i>Навигационная система, TV,
+													DVD</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="car-post-comment mt-4">
+								<div class="title">
+									Сообщение Продовца
+								</div>
+								<div class="hline mb-3"></div>
+								<div class="comment">
+									{{car_post.car_notes}}
+								</div>
+								<div class="hline mt-3"></div>
+							</div>
 						</div>
-						<div class="car-post-comfort-features">
-
+					</div>
+				</div>
+				<div class="card mb-3">
+					<div class="card-body">
+						<div class="car-post-tech-data">
+							<div class="title">
+								Other vehicles from this dealer
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card mb-3">
+					<div class="card-body">
+						<div class="car-post-tech-data">
+							<div class="title">
+								Dealer
+							</div>
 						</div>
 					</div>
 				</div>

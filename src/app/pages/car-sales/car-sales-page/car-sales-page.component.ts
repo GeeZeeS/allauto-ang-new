@@ -3,6 +3,11 @@ import { CarPost } from 'src/app/interfaces/interfaces';
 import { Subscription } from 'rxjs';
 import { CarSalesService } from 'src/app/services/car_sales.service';
 import { ActivatedRoute } from '@angular/router';
+import {
+  NgxGalleryOptions,
+  NgxGalleryImage,
+  NgxGalleryAnimation
+} from '@kolkov/ngx-gallery';
 
 @Component({
   selector: 'app-car-sales-page',
@@ -14,12 +19,34 @@ export class CarSalesPageComponent implements OnInit {
   car_post: CarPost;
   pSub: Subscription;
 
+  galleryOptions: NgxGalleryOptions[];
+  galleryImages: NgxGalleryImage[];
+
   constructor(
     private carSalesService: CarSalesService,
     private route: ActivatedRoute,
     ) { }
 
   ngOnInit(): void {
+    this.galleryOptions = [
+      {
+        width: "100%",
+        height: "450px",
+        thumbnailsColumns: 4,
+        imageAnimation: NgxGalleryAnimation.Fade,
+        previewCloseOnClick: true, previewCloseOnEsc: true
+      },
+      {
+        breakpoint: 300,
+        imagePercent: 80,
+        thumbnailsPercent: 10,
+        thumbnailsMargin: 10,
+        thumbnailMargin: 10
+      },
+      {
+        breakpoint: 400,
+      }
+    ];
     this.getCarPost(this.id)
   }
 
@@ -31,7 +58,16 @@ export class CarSalesPageComponent implements OnInit {
       .getCarPosts(id)
       .subscribe(post => {
         this.car_post = post
-        console.log(this.car_post)
+        let newImages = [];
+        this.car_post['car_images'].forEach(image => {
+          newImages.push({
+            'small': 'https://api.allauto.md' + image.image,
+            'medium': 'https://api.allauto.md' + image.image,
+            'big': 'https://api.allauto.md' + image.image,
+          });
+        });
+        this.galleryImages = newImages;
+        console.log(newImages)
       })
   }
 
