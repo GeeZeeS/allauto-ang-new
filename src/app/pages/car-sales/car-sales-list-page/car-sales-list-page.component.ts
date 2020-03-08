@@ -31,6 +31,9 @@ export class CarSalesListPageComponent implements OnInit {
   carBrandSelect = ''
   car_brands: CarBrand;
 
+  carBodySelect = ''
+  car_bodies: CarBrand;
+
   pSub: Subscription;
 
   params = new HttpParams()
@@ -77,12 +80,17 @@ export class CarSalesListPageComponent implements OnInit {
     this.car_brand = event.target.value
   }
 
+  onBodyChange(event: any){
+    this.car_body = event.target.value
+  }
+
   getMessage(message: string) {
     this.posts_count = message;
   }
 
   ngOnInit(): void {
     this.getCarCondition();
+    this.getCarBody()
     this.getCarBrand();
     this.orderSelect = this.ordering;
   }
@@ -92,6 +100,14 @@ export class CarSalesListPageComponent implements OnInit {
       .getCarConditions(0)
       .subscribe(conditions => {
         this.car_conditions = conditions;
+      });
+  }
+
+  getCarBody(){
+    this.pSub = this.carSalesService
+      .getCarBody(0)
+      .subscribe(bodies => {
+        this.car_bodies = bodies;
       });
   }
 
