@@ -8,7 +8,7 @@ import { AuthService } from './auth.service';
 @Injectable({providedIn:'root'})
 
 export class BlogService{
-    baseurl = 'https://api.allauto.md/api/v1/blog'
+    baseurl = 'http://localhost:8000/api/v1/blog'
     constructor(private auth: AuthService, private http: HttpClient){}
 
     httpOptions = {

@@ -59,15 +59,14 @@ export class CarSalesPageComponent implements OnInit {
       .subscribe(post => {
         this.car_post = post
         let newImages = [];
-        this.car_post['car_images'].forEach(image => {
+        this.car_post['car_image'].forEach(image => {
           newImages.push({
-            'small': 'https://api.allauto.md' + image.image,
-            'medium': 'https://api.allauto.md' + image.image,
-            'big': 'https://api.allauto.md' + image.image,
+            'small': 'http://localhost:8000' + image.image,
+            'medium': 'http://localhost:8000' + image.image,
+            'big': 'http://localhost:8000' + image.image,
           });
         });
         this.galleryImages = newImages;
-        console.log(newImages)
       })
   }
 

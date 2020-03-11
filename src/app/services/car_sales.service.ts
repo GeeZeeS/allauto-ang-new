@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
 @Injectable({ providedIn: 'root' })
 
 export class CarSalesService {
-    baseurl = 'https://api.allauto.md/api/v1/autostore'
+    baseurl = 'http://localhost:8000/api/v1/car-sale'
     constructor(
         private http: HttpClient,
         private auth: AuthService
@@ -37,9 +37,9 @@ export class CarSalesService {
     getCarConditions(id: number): Observable<CarCondition> {
         var url = ''
         if (id > 0) {
-            url = `/car_condition/${id}/`
+            url = `/car-condition/${id}/`
         } else {
-            url = '/car_condition/'
+            url = '/car-condition/'
         }
         return this.http.get(this.baseurl + url)
             .pipe(map((response: any) => {
@@ -50,9 +50,9 @@ export class CarSalesService {
     getCarBrands(id: number): Observable<CarBrand> {
         var url = ''
         if (id > 0) {
-            url = `/car_brand/${id}/`
+            url = `/car-brand/${id}/`
         } else {
-            url = '/car_brand/'
+            url = '/car-brand/'
         }
         return this.http.get(this.baseurl + url)
             .pipe(map((response: any) => {
@@ -63,9 +63,9 @@ export class CarSalesService {
     getCarModels(id: number, brand_id: number): Observable<CarModel> {
         var url = ''
         if (id > 0) {
-            url = `/car_model/${id}/`
+            url = `/car-model/${id}/`
         } else {
-            url = `/car_model/?brand=${brand_id}`
+            url = `/car-model/?brand=${brand_id}`
         }
         return this.http.get(this.baseurl + url)
             .pipe(map((response: any) => {
@@ -76,9 +76,9 @@ export class CarSalesService {
     getCarBody(id: number): Observable<CarBody> {
         var url = ''
         if (id > 0) {
-            url = `/car_body/${id}/`
+            url = `/car-body/${id}/`
         } else {
-            url = '/car_body/'
+            url = '/car-body/'
         }
         return this.http.get(this.baseurl + url)
             .pipe(map((response: any) => {
@@ -89,9 +89,9 @@ export class CarSalesService {
     getCarColor(id: number): Observable<CarColor> {
         var url = ''
         if (id > 0) {
-            url = `/car_color/${id}/`
+            url = `/car-color/${id}/`
         } else {
-            url = '/car_color/'
+            url = '/car-color/'
         }
         return this.http.get(this.baseurl + url)
             .pipe(map((response: any) => {
@@ -102,9 +102,9 @@ export class CarSalesService {
     getCarFuel(id: number): Observable<CarFuel> {
         var url = ''
         if (id > 0) {
-            url = `/car_fuel/${id}/`
+            url = `/car-fuel/${id}/`
         } else {
-            url = '/car_fuel/'
+            url = '/car-fuel/'
         }
         return this.http.get(this.baseurl + url)
             .pipe(map((response: any) => {
@@ -115,9 +115,9 @@ export class CarSalesService {
     getCarTransmission(id: number): Observable<CarTransmission> {
         var url = ''
         if (id > 0) {
-            url = `/car_transmission/${id}/`
+            url = `/car-transmission/${id}/`
         } else {
-            url = '/car_transmission/'
+            url = '/car-transmission/'
         }
         return this.http.get(this.baseurl + url)
             .pipe(map((response: any) => {
@@ -128,9 +128,9 @@ export class CarSalesService {
     getCarWheelDrive(id: number): Observable<CarWheelDrive> {
         var url = ''
         if (id > 0) {
-            url = `/car_wheel_drive/${id}/`
+            url = `/car-wheel_drive/${id}/`
         } else {
-            url = '/car_wheel_drive/'
+            url = '/car-wheel_drive/'
         }
         return this.http.get(this.baseurl + url)
             .pipe(map((response: any) => {
@@ -141,9 +141,9 @@ export class CarSalesService {
     getCarRegion(id: number): Observable<CarRegion> {
         var url = ''
         if (id > 0) {
-            url = `/car_region/${id}/`
+            url = `/car-region/${id}/`
         } else {
-            url = '/car_region/'
+            url = '/car-region/'
         }
         return this.http.get(this.baseurl + url)
             .pipe(map((response: any) => {
@@ -154,9 +154,9 @@ export class CarSalesService {
     getCarPosts(id: number): Observable<CarPost> {
         var url = ''
         if (id > 0) {
-            url = `/car_post/${id}/`
+            url = `/car-post/${id}/`
         } else {
-            url = '/car_post/'
+            url = '/car-post/'
         }
         return this.http.get(this.baseurl + url)
             .pipe(map((response: any) => {
@@ -174,7 +174,7 @@ export class CarSalesService {
         page: string,
         ordering: string
     ): Observable<CarPost> {
-        var url = `/car_post/?id=${id}&car_condition=${car_condition}&car_brand=${car_brand}&car_model=${car_model}&car_body=${car_body}&car_fuel=${car_fuel}&page=${page}&ordering=${ordering}`
+        var url = `/car-post/?id=${id}&car_condition=${car_condition}&car_brand=${car_brand}&car_model=${car_model}&car_body=${car_body}&car_fuel=${car_fuel}&page=${page}&ordering=${ordering}`
         return this.http.get(this.baseurl + url)
             .pipe(map((response: any) => {
                 return response
@@ -182,7 +182,7 @@ export class CarSalesService {
     }
 
     getCarImages(id: number): Observable<any> {
-        var url = `/car_images/?car_post=${id}`
+        var url = `/car-images/?car_post=${id}`
         return this.http.get(this.baseurl + url)
             .pipe(map((response: any) => {
                 return response
@@ -196,7 +196,7 @@ export class CarSalesService {
                 'Authorization': this.auth.token
             })
         };
-        return this.http.post(this.baseurl + '/car_post/', carPost, httpOptions).pipe(
+        return this.http.post(this.baseurl + '/car-post/', carPost, httpOptions).pipe(
             map((response: any) => {
                 console.log(response);
                 return response
@@ -210,7 +210,7 @@ export class CarSalesService {
                 'Authorization': this.auth.token
             })
         };
-        return this.http.post(this.baseurl + '/car_images/', postImage, httpOptions).pipe(
+        return this.http.post(this.baseurl + '/car-images/', postImage, httpOptions).pipe(
             map((response: any) => {
                 return response
             })

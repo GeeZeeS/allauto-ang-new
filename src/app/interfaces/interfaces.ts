@@ -157,7 +157,7 @@ export interface CarPostSubmit{
   car_fuel: string
   car_transmission: string
   car_wheel_drive: string
-  car_region: string
+  region: string
   car_brand: string
   car_model: string
 
@@ -180,7 +180,7 @@ export interface CarPost{
   car_fuel: CarFuel
   car_transmission: CarTransmission
   car_wheel_drive: CarWheelDrive
-  car_region: CarRegion
+  region: CarRegion
   car_brand: CarBrand
   car_model: CarModel
 
