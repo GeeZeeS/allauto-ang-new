@@ -206,15 +206,17 @@
               <div class="title">
                 Other vehicles from this dealer
               </div>
+              <app-more-vehicles></app-more-vehicles>
             </div>
           </div>
         </div>
         <div class="card mb-3">
-          <div class="card-body">
+          <div class="card-body" *ngIf="is_dealer">
             <div class="car-post-tech-data">
               <div class="title">
-                Dealer
+                Dealer Info
               </div>
+              <app-dealer-info-component></app-dealer-info-component>
             </div>
           </div>
         </div>
@@ -224,7 +226,30 @@
       <div class="seller-info">
         <div class="card">
           <div class="card-body">
-
+            <div class="dealer-info" *ngIf="is_dealer">
+              <div class="dealer-title mb-3">
+                Дилер
+              </div>
+              <app-dealer-user
+              [user_info]="user_info"
+              ></app-dealer-user>
+            </div>
+            <div class="user-info">
+              <div class="user-title" *ngIf="is_dealer">Менеджер</div>
+              <div class="user-title" *ngIf="!is_dealer">Частный Продовец</div>
+              <div class="user-text mt-3">
+                <h6>Имя: </h6>
+                {{ user_info.first_name }} {{ user_info.last_name }}
+              </div>
+              <div class="user-text mt-3">
+                <h6>Телефон: </h6>
+                {{ user_info.phone_number }}
+              </div>
+              <div class="user-text mt-3">
+                <h6>Эл. Почта: </h6>
+                {{ user_info.email }}
+              </div>
+            </div>
           </div>
         </div>
       </div>

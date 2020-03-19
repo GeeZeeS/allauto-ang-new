@@ -1,0 +1,15 @@
+<div class="dealer-info" *ngIf="dealer_info">
+    <div class="logo-name">
+        <img src="{{ dealer_info.logo }}" class="img-fluid rounded mx-auto d-block">
+        <div class="dealer-name text-center mt-2">{{ dealer_info.name }}</div>
+        <div class="rating">
+            <ngb-rating [rate]="dealer_info.rating" [readonly]="true" max="5"></ngb-rating>
+        </div>
+    </div>
+    <div class="contact-info">
+        <h6>Телефон: </h6><div class="info-text">{{ dealer_info.phone }}</div>
+        <h6>Адресс: </h6><div class="info-text">{{ dealer_info.region.name }}, {{ dealer_info.address }}</div>
+        <h6>Эл. Почта: </h6><div class="info-text">{{ dealer_info.email }}</div>
+    </div>
+</div>
+<div class="hline mb-3 mt-3"></div>

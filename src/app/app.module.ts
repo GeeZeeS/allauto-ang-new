@@ -3,6 +3,7 @@ import 'hammerjs';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { SharedModule } from './modules/shared.module';
 import { AuthService } from './services/auth.service';
@@ -34,6 +35,9 @@ import { BlogService } from './services/blog.service';
 import { FeaturedCarComponent } from './pages/car-sales/car-sales-list-page/components/featured-car/featured-car.component';
 import { RecentCarsSalesListComponent } from './pages/car-sales/car-sales-list-page/components/recent-cars-sales-list/recent-cars-sales-list.component';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { DealerUserComponent } from './pages/car-sales/car-sales-page/components/dealer-user/dealer-user.component';
+import { MoreVehiclesComponent } from './pages/car-sales/car-sales-page/components/more-vehicles/more-vehicles.component';
+import { DealerInfoComponentComponent } from './pages/car-sales/car-sales-page/components/dealer-info-component/dealer-info-component.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +68,10 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
     // User
     ProfilePageComponent,
     // Vin Check
-    VinCheckPageComponent
+    VinCheckPageComponent,
+    DealerUserComponent,
+    MoreVehiclesComponent,
+    DealerInfoComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +79,8 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
     ReactiveFormsModule,
     SharedModule,
     AppRoutingModule,
-    NgxGalleryModule
+    NgxGalleryModule,
+    NgbModule
   ],
   providers: [
     AuthService, AuthGuard, CarSalesService, BlogService

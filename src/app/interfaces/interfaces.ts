@@ -11,11 +11,10 @@ export interface RegisterUser{
 export interface Profile{
   id?: string
   email: string
-  username: string
-  image: string
+  image_url: string
   first_name: string
   last_name: string
-  phone: string
+  phone_number: string
 }
 
 export interface ProfileUpdate{
@@ -91,7 +90,7 @@ export interface CarWheelDrive{
   name: string
 }
 
-export interface CarRegion{
+export interface Region{
   id: string
   name: string
 }
@@ -180,7 +179,7 @@ export interface CarPost{
   car_fuel: CarFuel
   car_transmission: CarTransmission
   car_wheel_drive: CarWheelDrive
-  region: CarRegion
+  region: Region
   car_brand: CarBrand
   car_model: CarModel
 
@@ -203,4 +202,15 @@ export interface PostImage{
   id?: string
   car_post: string
   image: any
+}
+
+export interface Dealer{
+  id?: number
+  name: string
+  phone: string
+  logo: string
+  region: Region
+  address: string
+  email: string
+  rating?: string
 }

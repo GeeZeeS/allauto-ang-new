@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CarPost } from 'src/app/interfaces/interfaces';
+import { CarPost, Profile } from 'src/app/interfaces/interfaces';
 import { Subscription } from 'rxjs';
 import { CarSalesService } from 'src/app/services/car_sales.service';
 import { ActivatedRoute } from '@angular/router';
@@ -17,6 +17,8 @@ import {
 export class CarSalesPageComponent implements OnInit {
 
   car_post: CarPost;
+  is_dealer: false;
+  user_info: Profile
   pSub: Subscription;
 
   galleryOptions: NgxGalleryOptions[];
@@ -58,6 +60,8 @@ export class CarSalesPageComponent implements OnInit {
       .getCarPosts(id)
       .subscribe(post => {
         this.car_post = post
+        this.user_info = post['created_by']
+        this.is_dealer = post['created_by']['is_dealer']
         let newImages = [];
         this.car_post['car_image'].forEach(image => {
           newImages.push({

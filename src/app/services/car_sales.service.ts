@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { CarCondition, CarBrand, CarModel, CarBody, CarColor, CarFuel, CarTransmission, CarWheelDrive, CarRegion, CarPostSubmit, PostImage, CarPost, MoneyType } from '../interfaces/interfaces';
+import { CarCondition, CarBrand, CarModel, CarBody, CarColor, CarFuel, CarTransmission, CarWheelDrive, Region, CarPostSubmit, PostImage, CarPost, MoneyType } from '../interfaces/interfaces';
 import { map, tap } from 'rxjs/operators';
 import { AuthService } from './auth.service';
 
@@ -138,7 +138,7 @@ export class CarSalesService {
             }))
     }
 
-    getCarRegion(id: number): Observable<CarRegion> {
+    getCarRegion(id: number): Observable<Region> {
         var url = ''
         if (id > 0) {
             url = `/car-region/${id}/`
