@@ -187,6 +187,10 @@ export interface CarPost{
   car_safety: CarSafetyFeatures
 
   car_year: string
+  car_cubic_capacity: number
+  car_power: number
+  number_of_seats: number
+  door_count: number
   car_mileage: string
   car_notes: string
   vin_number?: string

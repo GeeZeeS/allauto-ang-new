@@ -204,6 +204,15 @@ export class CarSalesService {
         )
     }
 
+    getRandomByDealerUser(user_id: number): Observable<CarPost> {
+        var url = `/car-post/?user=${user_id}&random=true`
+        return this.http.get(this.baseurl + url)
+            .pipe(map((response: any) => {
+                return response
+            })
+        )
+    }
+
     uploadImages(postImage: any): Observable<any> {
         let httpOptions = {
             headers: new HttpHeaders({

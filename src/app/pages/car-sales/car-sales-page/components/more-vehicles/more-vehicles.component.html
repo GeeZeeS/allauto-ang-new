@@ -1,1 +1,29 @@
-<p>more-vehicles works!</p>
+<div class="random-car-posts-list">
+    <div class="row">
+        <div class="col-lg-4" *ngFor="let post of car_posts | slice: 0:8">
+            <div class="recent-posts">
+                <div class="post-image">
+                    <a [routerLink]="['/car-sales/', post.id, 'view']"><img
+                            src="http://127.0.0.1:8000{{post.car_image.image}}" class="img-fluid"></a>
+                </div>
+                <div class="post-title">
+                    <a [routerLink]="['/car-sales/', post.id, 'view']">
+                        {{ post.car_brand.name }}
+                        {{ post.car_model.name }}
+                        {{ post.car_year }}
+                    </a>
+                </div>
+                <div class="post-price">
+                    {{ post.price | number }}{{ post.money_type.prefix }}
+                </div>
+                <div class="post-decription">
+                    <span>{{ post.car_brand.name }}, </span><span>{{ post.car_model.name }}, </span>
+                    <span>{{ post.car_year }}, </span>
+                    <span>{{ post.car_mileage }} km, </span><span>{{ post.car_body.name }}, </span>
+                    <span>{{ post.car_color.name }}, </span><span>{{ post.car_condition.name }}, </span>
+                    <span>{{ post.car_fuel.name }} </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

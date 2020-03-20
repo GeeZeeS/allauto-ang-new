@@ -44,6 +44,12 @@
                     <div class="response">{{ car_post.price | number }} {{ car_post.money_type.prefix }}</div>
                   </div>
                   <div class="col-lg-6">
+                    <div class="content">Состояние</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="response">{{ car_post.car_condition.name }}</div>
+                  </div>
+                  <div class="col-lg-6">
                     <div class="content">Брэнд</div>
                   </div>
                   <div class="col-lg-6">
@@ -56,16 +62,34 @@
                     <div class="response">{{ car_post.car_model.name }}</div>
                   </div>
                   <div class="col-lg-6">
+                    <div class="content">Кубич.</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="response">{{ car_post.car_cubic_capacity }}</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="content">Сил</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="response">{{ car_post.car_power }}</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="content">Кол-во Дверей</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="response">{{ car_post.door_count }}</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="content">Кол-во Мест</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="response">{{ car_post.number_of_seats }}</div>
+                  </div>
+                  <div class="col-lg-6">
                     <div class="content">Год</div>
                   </div>
                   <div class="col-lg-6">
                     <div class="response">{{ car_post.car_year }}</div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="content">Состояние</div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="response">{{ car_post.car_condition.name }}</div>
                   </div>
                   <div class="col-lg-6">
                     <div class="content">Пробег</div>
@@ -200,17 +224,20 @@
             </div>
           </div>
         </div>
-        <div class="card mb-3">
+        <div class="card">
           <div class="card-body">
             <div class="car-post-tech-data">
               <div class="title">
-                Other vehicles from this dealer
+                Больше от этого Дилера
               </div>
-              <app-more-vehicles></app-more-vehicles>
+              <div class="hline mb-3"></div>
+              <app-more-vehicles
+              [user_info]="user_info"
+              ></app-more-vehicles>
             </div>
           </div>
         </div>
-        <div class="card mb-3">
+        <!-- <div class="card mb-3">
           <div class="card-body" *ngIf="is_dealer">
             <div class="car-post-tech-data">
               <div class="title">
@@ -219,7 +246,7 @@
               <app-dealer-info-component></app-dealer-info-component>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="col-lg-4">
