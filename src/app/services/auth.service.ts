@@ -22,13 +22,13 @@ export class AuthService {
 
   login(user: User): Observable<any> {
     return this.http
-      .post("https://api.allauto.md/api/v1/auth/token/login/", user)
+      .post("http://localhost:8000/api/v1/auth/token/login/", user)
       .pipe(tap(this.setToken), catchError(this.handleError.bind(this)));
   }
 
   register(user: RegisterUser): Observable<any> {
     return this.http
-      .post("https://api.allauto.md/api/v1/auth/users/", user)
+      .post("http://localhost:8000/api/v1/auth/users/", user)
       .pipe(tap(this.getResponse), catchError(this.handleError.bind(this)));
   }
 

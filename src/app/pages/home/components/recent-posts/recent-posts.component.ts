@@ -26,43 +26,7 @@ export class RecentPostsComponent implements OnInit, OnDestroy {
   ) { }
   ngOnInit() {
     this.getNewCarPosts('', '', '', '', '', '', '');
-    // this.form = new FormGroup({
-    //   car_condition: new FormControl(null, [Validators.required]),
-    //   car_body: new FormControl(null, [Validators.required]),
-    //   car_brand: new FormControl(null, [Validators.required]),
-    //   car_model: new FormControl(null, [Validators.required]),
-    // });
-    // this.getCarConditions();
-    // this.getCarBrands();
-    // this.getCarModels(1);
-    // this.getCarBodies();
   }
-
-  // getCarConditions() {
-  //   this.pSub = this.carSalesService
-  //     .getCarConditions(0)
-  //     .subscribe(conditions => {
-  //       this.car_condition = conditions;
-  //     });
-  // }
-
-  // getCarBrands() {
-  //   this.pSub = this.carSalesService.getCarBrands(0).subscribe(brands => {
-  //     this.car_brand = brands;
-  //   });
-  // }
-
-  // getCarModels(id: number) {
-  //   this.pSub = this.carSalesService.getCarModels(0, id).subscribe(models => {
-  //     this.car_model = models;
-  //   });
-  // }
-
-  // getCarBodies() {
-  //   this.pSub = this.carSalesService.getCarBody(0).subscribe(bodies => {
-  //     this.car_body = bodies;
-  //   });
-  // }
 
   getNewCarPosts(
     id: string,

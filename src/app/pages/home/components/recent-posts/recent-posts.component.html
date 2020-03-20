@@ -2,9 +2,7 @@
   <div class="col-lg-3" *ngFor="let post of car_posts | slice: 0:8">
     <div class="recent-posts">
       <div class="post-image">
-        <a [routerLink]="['/car-sales/', post.id, 'view']"><img src="https://api.allauto.md{{
-							post.car_images[0].image
-						}}" class="img-fluid"></a>
+        <a [routerLink]="['/car-sales/', post.id, 'view']"><img src="http://127.0.0.1:8000{{post.car_image.image}}" class="img-fluid"></a>
       </div>
       <div class="post-title">
         <a [routerLink]="['/car-sales/', post.id, 'view']">
@@ -21,7 +19,7 @@
 				<span>{{ post.car_year }}, </span>
 				<span>{{ post.car_mileage }} km, </span><span>{{ post.car_body.name }}, </span>
 				<span>{{ post.car_color.name }}, </span><span>{{ post.car_condition.name }}, </span>
-				<span>{{ post.car_fuel.name }}, </span>
+				<span>{{ post.car_fuel.name }} </span>
       </div>
     </div>
   </div>

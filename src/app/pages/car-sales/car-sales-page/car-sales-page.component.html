@@ -1,1 +1,285 @@
-<p>car-sales-page works!</p>
+<div class="container" *ngIf="car_post">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['/']">Главная</a></li>
+      <li class="breadcrumb-item"><a [routerLink]="['/car-sales']">Авторынок</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{ car_post.car_brand.name }}
+        {{ car_post.car_model.name }}
+        {{ car_post.car_year }}</li>
+    </ol>
+  </nav>
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="car-post-container">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="car-post-header">
+              <div class="post-name">
+                {{ car_post.car_brand.name }}
+                {{ car_post.car_model.name }}
+                {{ car_post.car_year }}
+                <div class="post-price float-right">
+                  {{ car_post.price | number }} {{ car_post.money_type.prefix }}
+                </div>
+              </div>
+            </div>
+            <div class="car-post-image-slider mt-3" *ngIf="galleryImages && galleryImages.length">
+              <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
+            </div>
+          </div>
+        </div>
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="car-post-tech-data">
+              <div class="title">
+                Техничесские Данные
+              </div>
+              <div class="hline mb-3"></div>
+              <div class="options">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="content">Цена</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="response">{{ car_post.price | number }} {{ car_post.money_type.prefix }}</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="content">Состояние</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="response">{{ car_post.car_condition.name }}</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="content">Брэнд</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="response">{{ car_post.car_brand.name }}</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="content">Модель</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="response">{{ car_post.car_model.name }}</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="content">Кубич.</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="response">{{ car_post.car_cubic_capacity }}</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="content">Сил</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="response">{{ car_post.car_power }}</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="content">Кол-во Дверей</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="response">{{ car_post.door_count }}</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="content">Кол-во Мест</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="response">{{ car_post.number_of_seats }}</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="content">Год</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="response">{{ car_post.car_year }}</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="content">Пробег</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="response">{{ car_post.car_mileage }} км</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="content">Кузов</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="response">{{ car_post.car_body.name }}</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="content">КПП</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="response">{{ car_post.car_transmission.name }}</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="content">Привод</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="response">{{ car_post.car_wheel_drive.name }}</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="content">Топливо</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="response">{{ car_post.car_fuel.name }}</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="content">Цвет</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="response">{{ car_post.car_color.name }}</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="content">Регион</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="response">{{ car_post.region.name }}</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="content">VIN номер</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="response">{{ car_post.vin_number }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="car-post-safety-features mt-3">
+              <div class="title">
+                Безопасность
+              </div>
+              <div class="hline mb-3"></div>
+              <div class="lists-inline">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <ul>
+                      <li *ngIf="car_post.car_safety.abs">Антиблокировочная система</li>
+                      <li *ngIf="car_post.car_safety.airbag">Подушка безопасности водителя</li>
+                      <li *ngIf="car_post.car_safety.alarm">Противоугонная сигнализация</li>
+                      <li *ngIf="car_post.car_safety.all_season_tires">Всесезонные шины</li>
+                      <li *ngIf="car_post.car_safety.anti_theft">Противоугонное устройство</li>
+                      <li *ngIf="car_post.car_safety.curtain">Шторки безопасности</li>
+                      <li *ngIf="car_post.car_safety.esp">Система стабилизации</li>
+                      <li *ngIf="car_post.car_safety.fog_lights">Противотуманные фары</li>
+                      <li *ngIf="car_post.car_safety.head_washer">Омыватель фар</li>
+                      <li *ngIf="car_post.car_safety.light_sensor">Датчик света</li>
+                      <li *ngIf="car_post.car_safety.multi_wheel">Многофункциональный руль</li>
+                      <li *ngIf="car_post.car_safety.parking_sensor">Датчик парковки</li>
+                      <li *ngIf="car_post.car_safety.passenger_airbag">Подушка безопасности пассажира</li>
+                      <li *ngIf="car_post.car_safety.rain_sensor">Датчик дождя</li>
+                      <li *ngIf="car_post.car_safety.rear_airbag">Боковые подушки безопасности</li>
+                      <li *ngIf="car_post.car_safety.simple_disks">Легкосплавные колесные диски</li>
+                      <li *ngIf="car_post.car_safety.steel_disks">Стальные колесные диски</li>
+                      <li *ngIf="car_post.car_safety.summer_tires">Летние шины</li>
+                      <li *ngIf="car_post.car_safety.tcs">Зимние шины</li>
+                      <li *ngIf="car_post.car_safety.winter_tires">Антипробуксовочная система</li>
+                      <li *ngIf="car_post.car_safety.xenon">Ксеноновые фары</li>
+                    </ul>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="car-post-comfort-features mt-3">
+                <div class="title">
+                  Комфорт
+                </div>
+                <div class="hline mb-3"></div>
+                <div class="lists-inline">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <ul>
+                        <li *ngIf="car_post.car_comfort.audio_system">Аудиосистема</li>
+                        <li *ngIf="car_post.car_comfort.blacked_windows">Тонированные стекла</li>
+                        <li *ngIf="car_post.car_comfort.central_lock">Центральный замок</li>
+                        <li *ngIf="car_post.car_comfort.chair_warmer">Подогрев сидений</li>
+                        <li *ngIf="car_post.car_comfort.climate_control">Климат-контроль</li>
+                        <li *ngIf="car_post.car_comfort.cloth">Обивка салона ткань</li>
+                        <li *ngIf="car_post.car_comfort.computer">Бортовой компьютер</li>
+                        <li *ngIf="car_post.car_comfort.conditioner">Кондиционер</li>
+                        <li *ngIf="car_post.car_comfort.cruise_control">Круиз-контроль</li>
+												<li *ngIf="car_post.car_comfort.fr_window_system">Электрорегулировка боковых зеркал</li>
+												<li *ngIf="car_post.car_comfort.leather">Кожаный салон</li>
+                        <li *ngIf="car_post.car_comfort.main_chair_system">Электрорегулировка вод. сиденья</li>
+                        <li *ngIf="car_post.car_comfort.second_chair_system">Электрорегулировка пасс. сиденья</li>
+                        <li *ngIf="car_post.car_comfort.up_window">Электростеклоподъемники</li>
+                        <li *ngIf="car_post.car_comfort.velour">Велюровый салон</li>
+                        <li *ngIf="car_post.car_comfort.wheel_strength">Усилитель руля</li>
+                        <li *ngIf="car_post.car_comfort.wheel_width">Регулируемая рулевая колонка</li>
+                        <li *ngIf="car_post.car_comfort.window_warmer">Подогрев боковых зеркал</li>
+                        <li *ngIf="car_post.car_comfort.gps_tv_dvd">Навигационная система, TV, DVD</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="car-post-comment mt-4">
+                <div class="title">
+                  Сообщение Продовца
+                </div>
+                <div class="hline mb-3"></div>
+                <div class="comment">
+                  {{car_post.car_notes}}
+                </div>
+                <div class="hline mt-3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <div class="car-post-tech-data">
+              <div class="title">
+                Больше от этого Дилера
+              </div>
+              <div class="hline mb-3"></div>
+              <app-more-vehicles
+              [user_info]="user_info"
+              ></app-more-vehicles>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="card mb-3">
+          <div class="card-body" *ngIf="is_dealer">
+            <div class="car-post-tech-data">
+              <div class="title">
+                Dealer Info
+              </div>
+              <app-dealer-info-component></app-dealer-info-component>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="seller-info">
+        <div class="card">
+          <div class="card-body">
+            <div class="dealer-info" *ngIf="is_dealer">
+              <div class="dealer-title mb-3">
+                Дилер
+              </div>
+              <app-dealer-user
+              [user_info]="user_info"
+              ></app-dealer-user>
+            </div>
+            <div class="user-info">
+              <div class="user-title" *ngIf="is_dealer">Менеджер</div>
+              <div class="user-title" *ngIf="!is_dealer">Частный Продовец</div>
+              <div class="user-text mt-3">
+                <h6>Имя: </h6>
+                {{ user_info.first_name }} {{ user_info.last_name }}
+              </div>
+              <div class="user-text mt-3">
+                <h6>Телефон: </h6>
+                {{ user_info.phone_number }}
+              </div>
+              <div class="user-text mt-3">
+                <h6>Эл. Почта: </h6>
+                {{ user_info.email }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
