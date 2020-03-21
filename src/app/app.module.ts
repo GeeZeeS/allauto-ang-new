@@ -38,6 +38,7 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { DealerUserComponent } from './pages/car-sales/car-sales-page/components/dealer-user/dealer-user.component';
 import { MoreVehiclesComponent } from './pages/car-sales/car-sales-page/components/more-vehicles/more-vehicles.component';
 import { DealerInfoComponentComponent } from './pages/car-sales/car-sales-page/components/dealer-info-component/dealer-info-component.component';
+import { RecentCheksComponent } from './pages/vin/vin-check-page/components/recent-cheks/recent-cheks.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { DealerInfoComponentComponent } from './pages/car-sales/car-sales-page/c
     VinCheckPageComponent,
     DealerUserComponent,
     MoreVehiclesComponent,
-    DealerInfoComponentComponent
+    DealerInfoComponentComponent,
+    RecentCheksComponent
   ],
   imports: [
     BrowserModule,

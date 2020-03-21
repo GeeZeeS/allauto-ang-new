@@ -1,0 +1,43 @@
+#search_vin_form {
+    h6{
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .validation {
+      margin-left: 10px;
+      color: red;
+    }
+    button {
+        outline: none !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+    }
+  }
+.short-report{
+  h6{
+    font-size: 16px;
+    font-weight: 700;
+  }
+  td{
+    font-size: 14px;
+  }
+}
+.long-report{
+  h6{
+    font-size: 16px;
+    font-weight: 700;
+  }
+  td{
+    font-size: 14px;
+  }
+  .card-header{
+    font-size: 14px;
+    font-weight: 700;
+  }
+}
+.recent-checks{
+  h6{
+    font-size: 16px;
+    font-weight: 700;
+  }
+}

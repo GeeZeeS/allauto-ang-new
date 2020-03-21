@@ -5,4 +5,174 @@
       <li class="breadcrumb-item active" aria-current="page">Проверить VIN</li>
     </ol>
   </nav>
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="card">
+        <div class="card-body">
+          <div class="vin-check-container">
+            <form [formGroup]="form" (ngSubmit)="submit()">
+              <div id="search_vin_form">
+                <h6>Проверка авто по VIN номеру</h6>
+                <div class="row">
+                  <div class="col-lg-10 mt-3">
+                    <div class="form-group">
+                      <input class="form-control" type="text" name="vin_number" id="vin_number"
+                        formControlName="vin_number" />
+                      <div class="validation" *ngIf="
+                          form.get('vin_number').touched &&
+                          form.get('vin_number').invalid
+                        ">
+                        <small *ngIf="form.get('vin_number').errors.minlength">VIN номер должен быть из 17
+                          символов</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 mt-3">
+                    <button type="submit" class="btn btn-primary btn-block">
+                      Поиск
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="card mt-4" *ngIf="vin_info">
+        <div class="card-body">
+          <div class="short-report">
+            <div class="row">
+              <div class="col-lg-12 mb-4">
+                <h6>Короткий отчет</h6>
+                <div class="card mt-4">
+                  <h6 class="mt-3 mb-3 ml-3">VIN: {{ short_response[1].VIN }}</h6>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <table class="table table-striped">
+                        <tbody>
+                          <tr>
+                            <td><b>Тип топлива </b></td>
+                            <td>{{ short_response[1].FuelTypePrimary }}</td>
+                            <td><b>Класс авто </b></td>
+                            <td>{{ short_response[1].GVWR }}</td>
+                          </tr>
+                          <tr>
+                            <td><b>Кубатура </b></td>
+                            <td>{{ short_response[1].DisplacementCC }}</td>
+                            <td><b>Производитель </b></td>
+                            <td>{{ short_response[1].Manufacturer }}</td>
+                          </tr>
+                          <tr>
+                            <td><b>Литраж </b></td>
+                            <td>{{ short_response[1].DisplacementL }}</td>
+                            <td><b>Модель </b></td>
+                            <td>{{ short_response[1].Model }}</td>
+                          </tr>
+                          <tr>
+                            <td><b>Дверей </b></td>
+                            <td>{{ short_response[1].Doors }}</td>
+                            <td><b>Брэнд </b></td>
+                            <td>{{ short_response[1].Make }}</td>
+                          </tr>
+                          <tr>
+                            <td><b>Привод </b></td>
+                            <td>{{ short_response[1].DriveType }}</td>
+                            <td><b>Год Выпуска </b></td>
+                            <td>{{ short_response[1].ModelYear }}</td>
+                          </tr>
+                          <tr>
+                            <td><b>Мотор </b></td>
+                            <td>{{ short_response[1].EngineConfiguration }}</td>
+                            <td><b>Штат Сборки </b></td>
+                            <td>{{ short_response[1].PlantState }}</td>
+                          </tr>
+                          <tr>
+                            <td><b>Цилиндров </b></td>
+                            <td>{{ short_response[1].EngineCylinders }}</td>
+                            <td><b>Страна Сборки </b></td>
+                            <td>{{ short_response[1].PlantCountry }}</td>
+                          </tr>
+                          <tr>
+                            <td><b>Лошадей </b></td>
+                            <td>{{ short_response[1].EngineHP }}</td>
+                            <td><b>Город Сборки </b></td>
+                            <td>{{ short_response[1].PlantCity }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mt-4" *ngIf="vin_info">
+        <div class="card-body">
+          <div class="long-report">
+            <div class="row">
+              <div class="col-lg-12">
+                <h6>Полный отчет</h6>
+                <div class="row mt-4">
+                  <div class="col-lg-6 mb-4">
+                    <div class="card">
+                      <div class="card-header">
+                        Carfax {{vin_info[0][1]}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 mb-4">
+                    <div class="card">
+                      <div class="card-header">
+                        AutoCheck {{vin_info[1][1]}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 mb-4">
+                    <div class="card">
+                      <div class="card-header">
+                        Copart {{vin_info[2][1]}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 mb-4">
+                    <div class="card">
+                      <div class="card-header">
+                        Photos {{vin_info[3][1]}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 mb-4">
+                    <div class="card">
+                      <div class="card-header">
+                        Manheim {{vin_info[4][1]}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 mb-4">
+                    <div class="card">
+                      <div class="card-header">
+                        IAAI {{vin_info[5][1]}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="recent-checks">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="mb-3">Последние Проверки</h6>
+            <app-recent-cheks></app-recent-cheks>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
